@@ -1,5 +1,5 @@
 // c2.go
-package print
+package rand
 
 // #include <stdio.h>
 // #include <stdlib.h>

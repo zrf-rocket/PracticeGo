@@ -1,4 +1,4 @@
-package trans
+package main
 
 import "math"
 
