@@ -2,7 +2,7 @@
 
 [本工程地址](https://github.com/zrf-rocket/PracticeGo.git)
 
-- GoProject 使用VScode编辑器开发的Go项目目录代码
+- ~~GoProject 使用VScode编辑器开发的Go项目目录代码（代码归档到goland_pro）~~
 - data_structures Go的数据结构 移步工程：[https://gitee.com/SteveRocket/data_structure.git](https://gitee.com/SteveRocket/data_structure.git)
 - design_pattern Go的设计模式 移步工程：[https://gitee.com/SteveRocket/design_pattern.git](https://gitee.com/SteveRocket/design_pattern.git)
 - goland_pro 使用Goland编辑器创建的Go项目
