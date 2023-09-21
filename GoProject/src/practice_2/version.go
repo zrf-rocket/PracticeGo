@@ -6,8 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Printf("%s", runtime.Version())
+	// 获取当前go版本
+	fmt.Printf("%s", runtime.Version()) // go1.20.4
 }
-
-// Output:
-// go1.0.3 or go 1.1
