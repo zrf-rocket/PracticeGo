@@ -9,13 +9,14 @@ func variable() {
 	var num2 int = 123 // 声明时赋值
 	fmt.Println(num2)  // 123
 
-	//因为 456 是 int 类型，所以赋值时，num3 自动被确定为 int 类型，所以类型名可以省略不写
+	//类型推导 因为 456 是 int 类型，所以赋值时，num3 自动被确定为 int 类型，所以类型名可以省略不写
 	var num3 = 456    // 声明时赋值
 	fmt.Println(num3) // 456
 
 	var nick_name string   // 声明一个保存字符串类型的变量s1
 	fmt.Println(nick_name) // 空字符串
-	// 更简单的声明赋值
+
+	// 更简单的声明赋值   简短变量声明，只能再函数里面用
 	name := "SteveRocket"
 	fmt.Println(name) // SteveRocket
 

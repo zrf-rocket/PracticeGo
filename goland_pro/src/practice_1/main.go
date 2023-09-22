@@ -5,6 +5,4 @@ func main() {
 	constVar()
 	// 变量
 	variable()
-	// 基本数据类型
-	basedatatype()
 }

@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// 内置模块time
 var week time.Duration
 
 func main() {

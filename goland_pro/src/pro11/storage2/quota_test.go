@@ -12,7 +12,7 @@ func TestCheckQuotaNotifiesUser(t *testing.T) {
 		notifiedUser, notifiedMsg = user, msg
 	}
 
-	const user = "joe@example.org"
+	const user = "rocket_2014@126.com"
 	usage[user] = 980000000 // simulate a 980MB-used condition
 
 	CheckQuota(user)

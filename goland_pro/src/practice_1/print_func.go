@@ -10,7 +10,7 @@ func main() {
 
 	name := "SteveRocket"
 	age := 28
-	// 类似C语言
+	// 类似C语言  %s是一个占位符 使用name这个变量的值替换%s占位符
 	fmt.Printf("My name is %s and i am %d year old.", name, age) //My name is SteveRocket and i am 28 year old.
 
 	fmt.Println("\n33 + 44 =", 33+44) // 33 + 44 = 77

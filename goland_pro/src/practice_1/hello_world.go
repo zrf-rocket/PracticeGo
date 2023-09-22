@@ -7,4 +7,7 @@ import "fmt"
 func main() {
 	//调用 fmt 包的 Println 方法，打印出 Hello, SteveRocket!，并自带一个换行。
 	fmt.Println("Hello, SteveRocket!")
+
+	// 输出不同的语言
+	fmt.Print("Hello, world; or Καλημέρα κόσμε; or こんにちは 世界\n")
 }

@@ -25,10 +25,7 @@ func main() {
 	fmt.Printf("sl2 joined by ;: %s\n", str3)
 }
 
-/* Output:
-Splitted in slice: [The quick brown fox jumps over the lazy dog]
-The - quick - brown - fox - jumps - over - the - lazy - dog -
-Splitted in slice: [GO1 The ABC of Go 25]
-GO1 - The ABC of Go - 25 -
-sl2 joined by ;: GO1;The ABC of Go;25
-*/
+//strings.Join()
+//bytes.Join()
+//errors.Join()
+//path.Join()

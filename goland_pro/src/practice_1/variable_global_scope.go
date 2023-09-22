@@ -1,6 +1,6 @@
 package main
 
-var a = "G"
+var a = "SteveRocket"
 
 func main() {
 	n()
@@ -11,6 +11,6 @@ func n() {
 	print(a)
 }
 func m() {
-	a = "O"
+	a = "Cramer"
 	print(a)
 }

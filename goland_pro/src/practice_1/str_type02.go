@@ -12,6 +12,7 @@ func strEncry(r rune) rune {
 	return r + 1
 }
 
+// 定义一个字符串类型
 var WEIXIN_URL = "https://mp.weixin.qq.com/s/0yqGBPbOI6QxHqK17WxU8Q"
 
 /*

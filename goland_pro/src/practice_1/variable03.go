@@ -2,36 +2,37 @@ package main
 
 import "fmt"
 
-// 关键字
-// break
-// default
-// func
-// interface
-// select
-// case
-// defer
-// go
-// map
-// struct
-// chan
-// else
-// goto
-// package
-// switch
-// const
-// fallthrough
-// if
-// range
-// type
-// continue
-// for
-// import
-// return
-// var
+// 变量名不能使用如下关键字
+/*
+break
+default
+func
+interface
+select
+case
+defer
+go
+map
+struct
+chan
+else
+goto
+package
+switch
+const
+fallthrough
+if
+range
+type
+continue
+for
+import
+return
+var
+*/
 
 // 在 Go 语言中，采用的是后置类型的声明方式
 func variable() {
-	// Go's Declaration Syntax  https://go.dev/blog/declaration-syntax
 	// 变量声明
 	var name string
 	var age int
