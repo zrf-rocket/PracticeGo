@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	var num1 int = 100
-
+	//var num1 int = 100  // It's equal to 100
+	num1 := 99 // It's equal to 98
 	switch num1 {
 	case 98, 99:
 		fmt.Println("It's equal to 98")

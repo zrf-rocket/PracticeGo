@@ -13,6 +13,7 @@ func main() {
 		items[i][1] = 2
 	}
 	fmt.Printf("Version A: Value of items: %v\n", items)
+
 	// Version B:
 	items2 := make([]map[int]int, 5)
 	for _, item := range items2 {
@@ -21,8 +22,3 @@ func main() {
 	}
 	fmt.Printf("Version B: Value of items: %v\n", items2)
 }
-
-/* Output:
-Version A: Value of items: [map[1:2] map[1:2] map[1:2] map[1:2] map[1:2]]
-Version B: Value of items: [map[] map[] map[] map[] map[]]
-*/

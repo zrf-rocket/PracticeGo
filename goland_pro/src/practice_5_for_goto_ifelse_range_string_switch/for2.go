@@ -9,4 +9,10 @@ func main() {
 		i = i - 1
 		fmt.Printf("The variable i is now: %d\n", i)
 	}
+
+	j := 1
+	for j <= 3 {
+		fmt.Println(j)
+		j += 1
+	}
 }

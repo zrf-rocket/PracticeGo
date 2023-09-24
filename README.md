@@ -11,7 +11,8 @@
 
 
 
-BLOG: [https://mp.weixin.qq.com/s/0yqGBPbOI6QxHqK17WxU8Q](https://mp.weixin.qq.com/s/0yqGBPbOI6QxHqK17WxU8Q)  
+WECHAT BLOG: [https://mp.weixin.qq.com/s/0yqGBPbOI6QxHqK17WxU8Q](https://mp.weixin.qq.com/s/0yqGBPbOI6QxHqK17WxU8Q)
+CSDN BLOG：[https://blog.csdn.net/zhouruifu2015/](https://blog.csdn.net/zhouruifu2015/)
 <img src="./static/wechat.png" style="width:500px">
 
 

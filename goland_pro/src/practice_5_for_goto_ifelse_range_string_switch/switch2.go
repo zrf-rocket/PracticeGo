@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var num1 int = 7
+	var num1 int = 7 // Number is between 0 and 10
 
 	switch {
 	case num1 < 0:
