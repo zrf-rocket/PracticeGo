@@ -18,15 +18,3 @@ func main() {
 		fmt.Printf("%d ", ix)
 	}
 }
-
-/* Output:
-Season 0 is: Spring
-Season 1 is: Summer
-Season 2 is: Autumn
-Season 3 is: Winter
-Spring
-Summer
-Autumn
-Winter
-0 1 2 3
-*/
