@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 /*
    Go没有三元操作符
@@ -80,7 +83,31 @@ func operator02() {
 	*/
 }
 
+func operator03() {
+	//关系运算符
+	num1 := 11
+	num2 := 11
+	num3 := 0
+	isEqual := num1 == num2
+	isNotEqual := num1 != num2
+	isLess := num1 < num3
+	isLessOrEqual := num1 <= num2
+	fmt.Println(isEqual)       // true
+	fmt.Println(isNotEqual)    // true
+	fmt.Println(isLess)        // true
+	fmt.Println(isLessOrEqual) // true
+
+	// 逻辑运算符
+	addr := &num1             // 取变量num1的地址
+	result := *addr           // 解引用变量addr，得到变量num1的值
+	fmt.Println(addr, result) // 0xc00001c098 11
+	typeOfAddr := reflect.TypeOf(addr)
+	typeOfResult := reflect.TypeOf(result)
+	fmt.Println(typeOfAddr, typeOfResult) //  *int int
+}
+
 func main() {
 	//operator01()
-	operator02()
+	//operator02()
+	operator03()
 }
