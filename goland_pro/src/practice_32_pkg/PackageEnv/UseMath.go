@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"maths/sum"
+	"practice_32_pkg/PackageEnv/maths"
 )
 
 func main() {
-	fmt.Println(Sum(12, 34))
+	fmt.Println(maths.Sum(12, 34)) // 46
 }

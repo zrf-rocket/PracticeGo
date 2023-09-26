@@ -11,8 +11,8 @@ import (
 * 如果确实需要按特定顺序执行的话，可以考虑使用GoLang并发编程模型中的channel进行控制或者调整代码包初始化函数的顺序
 ******************/
 
-//包初始化函数，作为代码包的初始化，该函数无需任何参数声明和结果声明，且名称必须为init
-//init方法从上到下依次被初始化执行
+// 包初始化函数，作为代码包的初始化，该函数无需任何参数声明和结果声明，且名称必须为init
+// init方法从上到下依次被初始化执行
 func init() {
 	println("this is other two init function()")
 	//先被执行  定义的全局变量name未被赋初值，默认为空字符串
@@ -31,12 +31,12 @@ func init() { //第一条语句在执行时，变量m已经被初始化并赋值
 	info = fmt.Sprintf("OS:%s, Arch:%s", runtime.GOOS, runtime.GOARCH)
 }
 
-//定义一个全局变量  map类型  已被显示赋值
+// 定义一个全局变量  map类型  已被显示赋值
 var m map[int]string = map[int]string{11: "AAA", 22: "BBB", 33: "CCC"}
 
-//全局变量  string类型  未被显示赋值
+// 全局变量  string类型  未被显示赋值
 var info string //info默认会被赋予类型string的零值 空字符串""
-//var info string  //error 相同作用域下，不允许存在相同名字的全局变量
+// var info string  //error 相同作用域下，不允许存在相同名字的全局变量
 var name string
 
 func init() {

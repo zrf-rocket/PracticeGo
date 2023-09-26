@@ -1,69 +1,80 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func main() {
-	ArrayTest()
-}
-
-func ArrayTest() {
 	Array1()
-	Array2()
-	Array3()
-	Array4()
-	Array5()
-	Array6()
 
-	ArrayMap1()
-	ArrayMap2()
-	ArrayMap3()
-
-	ArraySlice()
-	ArraySlice2()
-	ArraySlice3()
-	ArraySlice4()
-	ArraySlice5()
+	//Array2()
+	//Array3()
+	//Array4()
+	//Array5()
+	//Array6()
+	//
+	//ArrayMap1()
+	//ArrayMap2()
+	//ArrayMap3()
+	//
+	//ArraySlice()
+	//ArraySlice2()
+	//ArraySlice3()
+	//ArraySlice4()
+	//ArraySlice5()
 }
 
 // 数组
-// 数组长度在定义后就不可改变   在声明时长度可以为一个常量或者一个常量
-// 表达式（常量表达式是指在编译期即可计算结果的表达式）
-// 它包含相同类型的连续的元素，这些元素可以是内建类型，像数字和字符串，也可以是结构类型，元素可以通过唯一的索引值访问，从 0 开始。
+// 数组长度在定义后就不可改变，在声明时长度可以为一个常量或者不指定
+// 数组它包含相同类型的连续的元素，这些元素可以是内建类型，像数字和字符串，也可以是结构类型，元素可以通过唯一的索引值访问，第一个元素从 0 开始。
 // 数组是很有价值的数据结构，因为它的内存分配是连续的，内存连续意味着可是让它在 CPU 缓存中待更久，所以迭代数组和移动元素都会非常迅速。
+// 常量表达式是指在编译期即可计算结果的表达式
 func Array1() {
 	// 声明一个长度为5的整数数组
-	var array [5]int
-	fmt.Println(array) //[0 0 0 0 0]
+	var array [5]int      // 当一个整型的数组被声明时，它里面包含的每个元素都会被初始化为 0 值。
+	var student [3]string // 当一个字符串类型的数组被声明时，它里面包含的每个元素都会被初始化为 字符串。
+
 	// Go 语言中任何变量被声明时，都会被默认初始化为各自类型对应的 0 值，数组当然也不例外。
-	// 当一个数组被声明时，它里面包含的每个元素都会被初始化为 0 值。
+	fmt.Println(array, len(array), cap(array), reflect.TypeOf(array))         //[0 0 0 0 0] 5 5 [5]int
+	fmt.Println(student, len(student), cap(student), reflect.TypeOf(student)) //[  ] 3 3 [3]string
+	var array02 []int
+	fmt.Println(array02, len(array02), cap(array02), reflect.TypeOf(array02)) //[] 0 0 []int
+
+	var arr1 [3]bool
+	var arr2 [4]float32
+	fmt.Printf("%T  %T\n", arr1, arr2) // [3]bool  [4]float32
+	fmt.Println(arr1, arr2)            // [3]bool  [4]float32
 
 	// 快速创建和初始化数组的方法是使用数组字面值。数组字面值允许我们声明我们需要的元素个数并指定数据类型
-	//var array1 := [5]int{11,22,44}//error
+	// var array1 := [5]int{11,22,44}  //  用法error   var不能和 := 一起使用
+
 	// 声明一个长度为5的整数数组
 	array1 := [5]int{11, 22, 44} //ok
-	fmt.Println(array1)
+	fmt.Println(array1)          // [11 22 44 0 0]
 
-	// var array3 []int{33,55,66,77,89,0}//error
+	// 通过数组索引（下标获取元素并修改）
 	array[1] = 111
-	fmt.Println(array)
+	fmt.Println(array) // [0 111 0 0 0]
 
-	// 一旦数组被声明了，那么它的数据类型跟长度都不能再被改变。如果你需要更多的元素，
-	// 那么只能创建一个你想要长度的新的数组，然后把原有数组的元素拷贝过去。
-	// len({1,3,5,7,8,9,0})  /error
+	var array3 = []int{33, 55, 66, 77, 89, 0}
+	fmt.Println(array3) // [33 55 66 77 89 0]
 
-	// 把长度写成 ...，Go 编译器将会根据你的元素来推导出长度
+	// 一旦数组被声明了，那么它的数据类型跟长度都不能再被改变。如果你需要更多的元素，那么只能创建一个你想要长度的新的数组，然后把原有数组的元素拷贝过去。
+	// len({1,3,5,7,8,9,0})  // 用法错误error   Python中可以这么使用 Go中不可以
+	fmt.Println(len([]int{11, 22, 33, 44})) // 4
+
+	// 把长度写成 ...，Go 编译器将会根据你的元素来推导出长度，数组的长度是该数组类型的一个内置常量
 	array4 := [...]string{"golang", "java", "scala", "python"}
-	fmt.Println(len(array4)) //4
-	// 数组的长度是该数组类型的一个内置常量
+	fmt.Println(len(array4)) // 4
 
-	// 如果我们知道想要数组的长度，但是希望对指定位置元素初始化
-	// 为索引为1和4的位置指定元素初始化
-	// 剩余元素为空值
+	// 如果我们知道想要数组的长度，但是希望对指定位置元素初始化，为索引为1和4的位置指定元素初始化，剩余元素为空值
 	array5 := [5]string{1: "scala", 4: "java"}
-	fmt.Println(array5)
+	fmt.Println(array5) // [ scala   java]
+
 }
 
-//定义一个指针数组
+// 定义一个指针数组
 func Array2() {
 	array := [5]*int{0: new(int), 1: new(int)}
 	fmt.Println(array)
@@ -80,7 +91,7 @@ func Array2() {
 	}
 }
 
-//数组的复制
+// 数组的复制
 func Array3() {
 	// 在 Go 语言中数组是一个值，所以可以用它来进行赋值操作。一个数组可以被赋值给任意相同类型的数组：
 	var array1 [5]string
@@ -105,7 +116,7 @@ func Array3() {
 	fmt.Println(array5)
 }
 
-//拷贝一个指针数组
+// 拷贝一个指针数组
 func Array4() {
 	// 拷贝一个指针数组实际上是拷贝指针值，而不是指针指向的值
 	var array1 [5]*string
@@ -268,7 +279,7 @@ func ArrayMap3() {
 	fmt.Println("修改之后：", arr) //[1 2 3 4 5]
 }
 
-//此处函数的参数中  数组的长度要与传入的数组的长度相等
+// 此处函数的参数中  数组的长度要与传入的数组的长度相等
 func modify(array [5]int) {
 	array[0] = 111                                  //试图修改array的值
 	fmt.Println("In modify() array values:", array) //[111 2 3 4 5]

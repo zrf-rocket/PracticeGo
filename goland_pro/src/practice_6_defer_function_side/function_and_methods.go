@@ -3,12 +3,10 @@ package main
 import (
 	"errors"
 	"fmt"
-	"mymaths"
 )
 
 func main() {
 	FunctionDefinition1()
-	FunctionTransfer1()
 	VariableParameter1()
 	VariableParameter2()
 	VariableParameter3()
@@ -18,7 +16,8 @@ func main() {
 }
 
 // 函数
-// 	定义()
+//
+//	定义()
 func FunctionDefinition1() {
 	res, ok := Add(-1, 0)
 	fmt.Println(res, ok) //0 Shoud be non-negative numbers
@@ -42,17 +41,10 @@ func Add2(num1, num2 int) int {
 	return res
 }
 
-// 	调用
-func FunctionTransfer1() {
-	//mymaths.Sub调用自定义的包中的方法
-	res := mymaths.Sub(11, 11)
-	fmt.Println(res)
-}
-
 // 小写字母开头的函数只在本包内可见，大写字母开头的函数才能被其他包使用。
 // 这个规则也适用于类型和变量的可见性。
 
-// 	不定参数
+// 不定参数
 func VariableParameter1() {
 	myfunc(1, 3, 5, 7, 9)
 	myfunc() //长度为0
@@ -141,7 +133,7 @@ func MyPrintf(args ...interface{}) {
 	}
 }
 
-// 	多返回值
+// 多返回值
 func MultipleReturnValue1() {
 	// 比如 File.Read() 函数就可以同时返回读取的字节数和错误信息。如果读取文件成功，则返回值中的 n 为读取的字节数， err 为 nil ，否则 err 为具体的出错信息：
 }
@@ -155,7 +147,7 @@ func MultipleReturnValue1() {
 // Read() 函数返回的错误码：
 // n, _ := f.Read(buf)
 
-// 	匿名函数与闭包
+// 匿名函数与闭包
 func AnonymousFunctionWithClosures1() {
 	// 匿名函数是指不需要定义函数名的一种函数实现方式
 	// 函数可以像普通变量一样被传递或使用，这与C语言的回调函数比较类似。不同的是，Go语言支持随时在代码里定义匿名函数。
