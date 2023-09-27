@@ -1,26 +1,134 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func main() {
-	Map()
-	Map2()
+	//MapDemo()
+	//mapDemo2()
+	//Map1()
+	//Map2()
 	Map3()
-	Map4()
-	Map5()
-	Map6()
-	Map7()
-	Map8()
-	Map9()
-	Map10()
-	Map11()
-	Map12()
-	Map13()
-	Map14()
+	//Map4()
+	//Map5()
+	//Map6()
+	//Map7()
+	//Map8()
+	//Map9()
+	//Map10()
+	//Map11()
+	//Map12()
+	//Map13()
+	//Map14()
 }
 
-//使用 map 不需要引入任何库
-// map 是一堆键值对的未排序集合。
+func MapDemo() {
+	// 声明map
+	var personInfo = map[string]int{}
+	fmt.Println(personInfo, reflect.TypeOf(personInfo), len(personInfo)) // map[] map[string]int 0
+	fmt.Println(personInfo == nil)                                       // false
+
+	// 声明map
+	var map1 map[string]int                            // 创建一个空的string到int的映射
+	fmt.Println(map1, reflect.TypeOf(map1), len(map1)) // map[] map[string]int 0
+	fmt.Println(map1 == nil)                           // true
+	// 没有初始化，说明没有在内存中开辟空间，没有内存地址
+
+	// 使用make创建map
+	map2 := make(map[string]int)                                    // // 创建一个空的string到int的映射
+	fmt.Println(map2, len(map2), reflect.TypeOf(map2), map2 == nil) // map[] 0 map[string]int false
+	//map不能使用cap()函数，可以使用len函数获取映射中键值对的数量
+}
+
+func mapDemo2() {
+	// 声明时进行初始化map
+	map3 := map[string]int{"number1": 1, "number2": 2, "age": 28}   // 创建一个包含三个键值对的映射
+	fmt.Println(map3, len(map3), reflect.TypeOf(map3), map3 == nil) // map[age:28 number1:1 number2:2] 3 map[string]int false
+
+	// 使用make()函数进行初始化
+	var student map[string]int
+	student = make(map[string]int)
+	student["steverocket"] = 28
+	student["cramer"] = 18
+	student[""] = 0
+	fmt.Println(student) // map[:0 cramer:18 steverocket:28]
+
+	var map4 map[int]int
+	map4 = make(map[int]int, 10) //根据实际情况，事先要估算好map的容量，避免在程序运行期间在动态扩容（动态扩容会影响程序运行效率）
+	map4[1] = 111
+	map4[2] = 222
+	map4[3] = 333
+	fmt.Println(map4) // map[1:111 2:222 3:333]
+
+	map4[3] = 444
+	fmt.Println(map4) // map[1:111 2:222 3:444]
+
+	//使用海星符号:= 简化声明并初始化
+	map5 := make(map[int]int, 10)
+	fmt.Println(len(map5), map5) // 0 map[]
+	map5[1] = 111
+	map5[2] = 222
+	map5[3] = 333
+	fmt.Println(len(map5), map5) // 3 map[1:111 2:222 3:333]
+}
+
+func Map3() {
+	map01 := map[int]int{1: 11, 2: 22, 3: 33, 4: 44, 5: 55}
+	// 根据key取出value
+	fmt.Println(map01[1]) // 11
+
+	// 可以使用映射切片来获取子映射
+	keys := []int{1, 2}
+	newMap := make(map[int]int)
+
+	for _, k := range keys {
+		newMap[k] = map01[k]
+	}
+	fmt.Println(newMap) // map[1:11 2:22]
+
+	//	判断key是否存在
+	value1, err1 := map01[1]
+	value2, err2 := map01[111]
+	//如果key存在err为true，value为对应的值；如果不存在err则为false，value为值类型的零值
+	fmt.Println(value1, err1) // 11 true
+	fmt.Println(value2, err2) //0 false
+}
+
+func Map4() {
+
+}
+
+func Map5() {
+
+}
+
+func Map6() {
+
+}
+
+func Map7() {
+
+}
+
+func Map8() {
+
+}
+
+func Map9() {
+
+}
+
+func Map10() {
+
+}
+
+func Map11() {
+
+}
+
+// map是go内置的类型，使用 map 不需要引入任何库，map 是一堆键值对的未排序集合。
 type PersonInfo struct {
 	ID      string
 	Age     int
@@ -28,7 +136,7 @@ type PersonInfo struct {
 	Address string
 }
 
-func Map() {
+func Map1() {
 	var personDb map[string]PersonInfo
 	fmt.Println(personDb)
 	personDb = make(map[string]PersonInfo)
@@ -64,6 +172,7 @@ func Map() {
 
 func Map2() {
 	// 1. 变量声明    map 的声明基本上没有多余的元素
+	// 此处声明的map中的value是一个结构体
 	var myMap map[string]PersonInfo
 	// myMap 是声明的 map 变量名， string 是键的类型， PersonInfo 则是其中所存放的值类型
 
@@ -95,9 +204,9 @@ func Map2() {
 
 	// 5. 元素查找
 	// 判断能否从 map 中获取一个值的常规做法是
-	// (1) 声明并初始化一个变量为空；
-	// (2) 试图从 map 中获取相应键的值到该变量中；
-	// (3) 判断该变量是否依旧为空，如果为空则表示 map 中没有包含该变量。
+	// 1、声明并初始化一个变量为空；
+	// 2、试图从 map 中获取相应键的值到该变量中；
+	// 3、判断该变量是否依旧为空，如果为空则表示 map 中没有包含该变量。
 
 	// 判断变量是否为空这条语句并不能真正表意（是否成功取到对应的值），从而影响代码的可读性和可维护性。有些库甚至会设计为因为一个键不存在而抛出异常，
 	// 让开发者用起来胆战心惊，不得不一层层嵌套 try-catch 语句，这更是不人性化的设计。在Go语言中，要从 map 中查找一个特定的键，可以通过下面的代码来实现
@@ -116,42 +225,6 @@ func Map2() {
 	}
 	// 判断是否成功找到特定的键，不需要检查取到的值是否为 nil ，只需查看第二个返回值 ok ，
 	// 这让表意清晰很多。配合 := 操作符，让你的代码没有多余成分，看起来非常清晰易懂。
-}
-
-func Map3() {
-
-}
-
-func Map4() {
-
-}
-
-func Map5() {
-
-}
-
-func Map6() {
-
-}
-
-func Map7() {
-
-}
-
-func Map8() {
-
-}
-
-func Map9() {
-
-}
-
-func Map10() {
-
-}
-
-func Map11() {
-
 }
 
 // 在函数间传递 map
