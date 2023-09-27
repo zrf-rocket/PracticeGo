@@ -24,9 +24,3 @@ func main() {
 	s.Field(1).SetString("Sunset Strip")
 	fmt.Println("t is now", t)
 }
-
-/* Output:
-0: A int = 23
-1: B string = skidoo
-t is now {77 Sunset Strip}
-*/

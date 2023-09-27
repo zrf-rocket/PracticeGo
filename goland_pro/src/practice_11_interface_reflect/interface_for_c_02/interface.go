@@ -2,14 +2,14 @@ package main
 
 import "fmt"
 
-// -------------------------------------------------------------
-
 type IReadWriter interface {
 	Read(buf *byte, cb int) int
 	Write(buf *byte, cb int) int
 }
 
-// -------------------------------------------------------------
+type IWriter interface {
+	Write(buf *byte, cb int) int
+}
 
 type A struct {
 	a int
@@ -30,8 +30,6 @@ func (this *A) Write(buf *byte, cb int) int {
 	return cb
 }
 
-// -------------------------------------------------------------
-
 type B struct {
 	A
 }
@@ -50,12 +48,9 @@ func (this *B) Foo() {
 	fmt.Println("B_Foo:", this.a)
 }
 
-// -------------------------------------------------------------
-
 func main() {
-	var p IReadWriter = NewB(8)
+	var p IReadWriter = NewB(9)
+	var p2 IWriter = p
 	p.Read(nil, 10)
-	p.Write(nil, 10)
+	p2.Write(nil, 10)
 }
-
-// -------------------------------------------------------------

@@ -37,12 +37,3 @@ func main() {
 	results := value.Method(0).Call(nil)
 	fmt.Println(results) // [Ada - Go - Oberon]
 }
-
-/* Output:
-main.NotknownType
-struct
-Field 0: Ada
-Field 1: Go
-Field 2: Oberon
-[Ada - Go - Oberon]
-*/
