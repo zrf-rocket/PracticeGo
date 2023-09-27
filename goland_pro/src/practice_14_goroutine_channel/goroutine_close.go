@@ -1,4 +1,3 @@
-// Q20_goroutine.go
 package main
 
 import (

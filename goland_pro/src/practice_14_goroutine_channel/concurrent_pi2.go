@@ -1,4 +1,3 @@
-// concurrent_pi2.go
 package main
 
 import (
@@ -39,8 +38,3 @@ func term(ch chan float64, start, end int) {
 	}
 	ch <- result
 }
-
-/* Output:
-3.1413926535917938
-The calculation took this amount of time: 0.002000
-*/

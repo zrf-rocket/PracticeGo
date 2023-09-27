@@ -1,4 +1,3 @@
-// Q26_fibonacci_go.go
 package main
 
 import (

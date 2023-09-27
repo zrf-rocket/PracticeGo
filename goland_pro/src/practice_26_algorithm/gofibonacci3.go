@@ -1,4 +1,3 @@
-// courtesy of: http://sdh33b.blogspot.com/2009/12/fibonacci-in-go.html
 package main
 
 import (

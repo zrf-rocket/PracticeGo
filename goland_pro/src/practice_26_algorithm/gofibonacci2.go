@@ -1,4 +1,3 @@
-// gofibonacci2.go
 package main
 
 import (

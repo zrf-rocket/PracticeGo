@@ -1,5 +1,5 @@
 // string_reverse_test.go
-package main
+package practice_38_unittest
 
 import "testing"
 import "./strev"

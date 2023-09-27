@@ -1,6 +1,8 @@
 // string_reverse.go
 package main
 
+import "fmt"
+
 func Reverse(s string) string {
 	runes := []rune(s)
 	n, h := len(runes), len(runes)/2
@@ -10,9 +12,7 @@ func Reverse(s string) string {
 	return string(runes)
 }
 
-/*
 func main() {
 	s := "My Test String!"
 	fmt.Println(s, " --> ", Reverse(s))
 }
-*/

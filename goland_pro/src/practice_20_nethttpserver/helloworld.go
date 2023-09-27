@@ -1,4 +1,3 @@
-// helloworld.go
 package helloworld
 
 import (

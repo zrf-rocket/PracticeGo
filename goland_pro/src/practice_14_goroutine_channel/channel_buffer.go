@@ -4,7 +4,7 @@ import "fmt"
 import "time"
 
 func main() {
-	c := make(chan int)
+	c := make(chan int, 50)
 	go func() {
 		time.Sleep(15 * 1e9)
 		x := <-c
@@ -14,10 +14,3 @@ func main() {
 	c <- 10
 	fmt.Println("sent", 10)
 }
-
-/* Output:
-sending 10
-(15 s later):
-received 10
-sent 10
-*/
