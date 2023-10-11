@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func sliceDemo01() {
 	// 创建方式1：使用var 创建一个空的string类型切片
@@ -61,12 +64,12 @@ func sliceDemo01() {
 func sliceDemo02() {
 	// 创建方式5：创建一个数组
 	var arr1 = [...]int{11, 22, 33, 44, 55, 66, 77, 88, 99, 00}
-	slice := arr1[0:5] // 此处基于数组做切割
-	fmt.Println(arr1,len(arr1), cap(arr1)) // [11 22 33 44 55 66 77 88 99 0] 10 10
-	fmt.Println(slice,len(slice), cap(slice)) // [11 22 33 44 55] 5 10
+	slice := arr1[0:5]                         // 此处基于数组做切割
+	fmt.Println(arr1, len(arr1), cap(arr1))    // [11 22 33 44 55 66 77 88 99 0] 10 10
+	fmt.Println(slice, len(slice), cap(slice)) // [11 22 33 44 55] 5 10
 	slice = arr1[4:8]
 	//此处slice容量大小等于数组arr1的长度-索引位置
-	fmt.Println(slice,len(slice), cap(slice))  // [55 66 77 88] 4 6
+	fmt.Println(slice, len(slice), cap(slice)) // [55 66 77 88] 4 6
 
 	//slice的切片操作
 	var slice0 []int = arr1[2:8]
@@ -83,24 +86,26 @@ func sliceDemo02() {
 
 func makeSlice() {
 	s1 := []int{}
-	fmt.Println(s1, len(s1), cap(s1))// [] 0 0
+	fmt.Println(s1, len(s1), cap(s1)) // [] 0 0
 
-	var s2 []int =make([]int, 0)
-	fmt.Println(s2, len(s2), cap(s2))// [] 0 0
+	// 省略cap，相当于 cap = len
+	var s2 []int = make([]int, 0)
+	fmt.Println(s2, len(s2), cap(s2)) // [] 0 0
 
+	// 使用 make 创建slice，并指定 len 和 cap 值
 	var s3 []int = make([]int, 0, 10)
-	fmt.Println(s3, len(s3), cap(s3))// [] 0 10
+	fmt.Println(s3, len(s3), cap(s3)) // [] 0 10
 
-	s4 := [5]int{11,22,33,44,55}
-	fmt.Println(s4, len(s4), cap(s4))// [11 22 33 44 55] 5 5
+	s4 := [5]int{11, 22, 33, 44, 55}
+	fmt.Println(s4, len(s4), cap(s4)) // [11 22 33 44 55] 5 5
 
 	var s5 []int
-	fmt.Println(s5, len(s5), cap(s5))// [] 0 0
+	fmt.Println(s5, len(s5), cap(s5)) // [] 0 0
 
-	var s6[]int = make([]int, 0, 0)
-	fmt.Println(s6, len(s6), cap(s6))  // [] 0 0
+	var s6 []int = make([]int, 0, 0)
+	fmt.Println(s6, len(s6), cap(s6)) // [] 0 0
 
-	s7 := []int{11,22,33,44,55}
+	s7 := []int{11, 22, 33, 44, 55}
 	fmt.Println(s7, len(s7), cap(s7)) // [11 22 33 44 55] 5 5
 
 	sValue := make([]int, 5, 10)
@@ -108,16 +113,29 @@ func makeSlice() {
 }
 
 func sliceDemo03() {
+	data := [...]int{11, 22, 33, 44, 55, 66}
+	fmt.Println(data, reflect.TypeOf(data), len(data), cap(data)) // [11 22 33 44 55 66] [6]int 6 6
+	slice := data[:]
+	fmt.Println(slice, reflect.TypeOf(slice), len(slice), cap(slice)) // [11 22 33 44 55 66] []int 6 6
 
-	//arr2 := [...]int{1,2, 3,4,5,6,7,8,9,0}
+	fmt.Printf("%T  %T\n", data, slice) // [6]int  []int
 
-	fmt.Printf("%v\n")
-	//append(s, 123)
+	newSlice := append(slice, 123)
+	fmt.Println(newSlice, reflect.TypeOf(newSlice), len(newSlice), cap(newSlice)) // [11 22 33 44 55 66 123] []int 7 12
+
+	slice[0] += 100
+	slice[1] += 200
+	fmt.Println(slice) // [111 222 33 44 55 66]
+
+	// 可直接创建 slice 对象，自动分配底层数组
+	// 通过初始化表达式构造，可使用索引号
+	slice2 := []int{11, 22, 33, 10: 99}
+	fmt.Println(slice2) //[11 22 33 0 0 0 0 0 0 0 99]
 }
 
 func main() {
 	//sliceDemo01()
 	//sliceDemo02()
 	//makeSlice()
-	//sliceDemo03()
+	sliceDemo03()
 }
