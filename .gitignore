@@ -56,3 +56,10 @@ pkg
 *.swp
 
 .idea
+
+
+alertmanager
+prometheus
+prometheus-book
+redigo
+log4go
